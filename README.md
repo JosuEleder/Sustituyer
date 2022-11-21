@@ -11,4 +11,6 @@ Cada palabra sustituída debe tener las siguientes características:
 * Rima consonante
 * Y, si puedo, que comience por el mismo patrón de vocal o consonante para evitar hiatos o diptongos forzados y hacer la equivalencia más afinada
 
+Y, por supuesto, que todo esto se haga de manera completamente automática (salvo quizás una parte de revisión final). Quiero que cada paso se realice basándose en diccionarios, corpus y herramientas de acceso público y sin intervención humana.
+
 ¿Conseguiré hacer todo esto? Lo veremos.
