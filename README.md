@@ -6,4 +6,9 @@ La idea de este programa es "relativamente" sencilla. Quiero hacer un programa q
 No, no sirve para nada más: es un experimento para practicar la combinación de desarrollos de PLN complejos en un pipeline con un objetivo muy específico.
 ## Las características
 Cada palabra sustituída debe tener las siguientes características:
-* Mismas
+* Misma categoría gramatical (sustantivo o adjetivo, en principio)
+* Mismo número de sílabas
+* Rima consonante
+* Y, si puedo, que comience por el mismo patrón de vocal o consonante para evitar hiatos o diptongos forzados y hacer la equivalencia más afinada
+
+¿Conseguiré hacer todo esto? Lo veremos.
