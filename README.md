@@ -34,15 +34,32 @@ Ahora tenemos que encontrar la forma de que spaCy realice un análisis sintácti
 
 Para ello nos descargamos un modelo lingüístico del español, con ```python3 -m spacy download es_core_news_sm```, y lo definimos en el script con ```nlp = spacy.load("es_core_news_sm")```
 
-Por último, vamos por cada peli de la lista, le pasamos el título a nuestro nuevo objeto lingüístico "nlp", y ya tenemos definida cada palabra!
+Por último, vamos por cada peli de la lista, le pasamos el título a nuestro nuevo objeto lingüístico "nlp", y ya tenemos los datos de cada palabra: "text" es la palabra tal cual, "pos_" es la categoría gramatical, "morph" es la información morfológica (número, género...). Metemos toda esa información en un diccionario. 
 
 ```
 for peli in pelisoriginales:
     doc = nlp(peli)
-    print(peli)
     for token in doc:
-        print(token.text, token.pos_)
+        numero, genero = obtenergennum(str(token.morph))
+        p = {"original":token.text, "POS":token.pos_, "numero":numero, "genero":genero, "nueva":sustituye(token.text)}
+        print(p)
  ```
+Ah, para sacar el número y el género de "morph" he hecho una función cutre que lo lee con unos if. Seguro que se podrá hacer mejor, ya le daré otra vuelta.
+```
+def obtenergennum(morf):
+    numero=""
+    genero=""
+    if "Number=Sing" in morf:
+        numero="sg"
+    if "Number=Plur" in morf:
+        numero="pl"
+    if "Gender=Fem" in morf:
+        genero="fm"
+    if "Gender=Masc" in morf:
+        genero="mc"
+    return numero, genero
+```
+Y veréis que en el diccionario he añadido ya un lugar para la palabra nueva, que se obtendría con la función "sustituye" (que por ahora no hace casi nada). Pronto volveremos a esto.
 
 
 
