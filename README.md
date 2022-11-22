@@ -37,27 +37,12 @@ Para ello nos descargamos un modelo lingüístico del español, con ```python3 -
 Por último, vamos por cada peli de la lista, le pasamos el título a nuestro nuevo objeto lingüístico "nlp", y ya tenemos los datos de cada palabra: "text" es la palabra tal cual, "pos_" es la categoría gramatical, "morph" es la información morfológica (número, género...). Metemos toda esa información en un diccionario. 
 
 ```
-for peli in pelisoriginales:
+for peli in pelis:
     doc = nlp(peli)
+    print("\n" + peli)
     for token in doc:
-        numero, genero = obtenergennum(str(token.morph))
-        p = {"original":token.text, "POS":token.pos_, "numero":numero, "genero":genero, "nueva":sustituye(token.text)}
+        p = {"original":token.text, "POS":token.pos_, "numero":token.morph.get("Number"), "genero":token.morph.get("Gender"), "nueva":sustituye(token.text, token.pos_)}
         print(p)
- ```
-Ah, para sacar el número y el género de "morph" he hecho una función cutre que lo lee con unos if. Seguro que se podrá hacer mejor, ya le daré otra vuelta.
-```
-def obtenergennum(morf):
-    numero=""
-    genero=""
-    if "Number=Sing" in morf:
-        numero="sg"
-    if "Number=Plur" in morf:
-        numero="pl"
-    if "Gender=Fem" in morf:
-        genero="fm"
-    if "Gender=Masc" in morf:
-        genero="mc"
-    return numero, genero
 ```
 Y veréis que en el diccionario he añadido ya un lugar para la palabra nueva, que se obtendría con la función "sustituye" (que por ahora no hace casi nada). Pronto volveremos a esto.
 
