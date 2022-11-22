@@ -19,3 +19,14 @@ Vamos a empezar simplemente con una lista de 10 películas, de las mejor valorad
 ```
 pelisoriginales = ["El padrino", "Doce hombres sin piedad", "La lista de Schindler", "Testigo de cargo", "Luces de la ciudad", "Cadena perpetua", "El gran dictador", "Tiempos modernos", "Lo que el viento se llevó", "Alguien voló sobre el nido del cuco"]
 ```
+Y lo primero que vamos a hacer es conseguir la información morfológica de cada una de las palabras de los títulos. En concreto necesito:
+* Categoría gramatical (sustantivo, adjetivo...)
+* Género (femenino, masculino...)
+* Número (singular, plural...)
+* Por ahora vamos a dejar fuera los verbos, pero si me meto con ellos necesitaré tiempo, modo, persona...
+
+¿Y cómo consigo eso? Pues utilizando alguna herramienta de NLP. Hay dos principales que trabajan bien con Python: NLTK y Spacy. Vamos a empezar con NLTK.
+
+### Análisis gramatical con NLTK
+Empezamos con ```import nltk```
+
