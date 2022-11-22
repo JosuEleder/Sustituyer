@@ -1,7 +1,7 @@
 # CambiaNombres
 
 ## La idea
-La idea de este programa es "relativamente" sencilla. Quiero hacer un programa que, dado un título en castellano de una película o libro (como "El halcón maltés") genere automáticamente variantes donde los sustantivos y adjetivos se sustituyan por palabras con las mismas sílabas, mismas características morfológicas, y que rimen en consonante (como "El cajón burgués"), por efecto cómico.
+La idea de este programa es "relativamente" sencilla. Quiero hacer un programa Python que, dado un título en castellano de una película o libro (como "El halcón maltés") genere automáticamente variantes donde los sustantivos y adjetivos se sustituyan por palabras con las mismas sílabas, mismas características morfológicas, y que rimen en consonante (como "El cajón burgués"), por efecto cómico.
 No, no sirve para nada más: es un experimento para practicar la combinación de desarrollos de PLN complejos en un pipeline con un objetivo muy específico.
 ## Las características
 Cada palabra sustituída debe tener las siguientes características:
@@ -25,8 +25,13 @@ Y lo primero que vamos a hacer es conseguir la información morfológica de cada
 * Número (singular, plural...)
 * Por ahora vamos a dejar fuera los verbos, pero si me meto con ellos necesitaré tiempo, modo, persona...
 
-¿Y cómo consigo eso? Pues utilizando alguna herramienta de NLP. Hay dos principales que trabajan bien con Python: NLTK y Spacy. Vamos a empezar con NLTK.
+¿Y cómo consigo eso? Pues utilizando alguna herramienta de NLP. De entre todas las que existen para Python, vamos a empezar con Spacy, que parece la más versátil para nuestros propósitos.
 
-### Análisis gramatical con NLTK
-Empezamos con ```import nltk```
+## Análisis gramatical con spaCy.
+Primero lo instalamos con ```pip3 install -U spacy```. Tarda un montón, así que iré a poner la lavadora mientras.
+Y cuando termine, en nuestro script, ```import spacy```.
+
+Ahora tenemos que encontrar la forma de que spaCy realice un análisis sintáctico de cada título, porque no queremos que nos diga que "cargo" puede ser el verbo "cargar" en presente: queremos que sepa que en "testigo de cargo", "cargo" es sólo (o muy probablemente) un sustantivo. O sea, queremos que *desambigüe*.
+
+
 
