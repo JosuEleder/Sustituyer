@@ -32,7 +32,7 @@ Primero lo instalamos con ```pip3 install -U spacy```. Cuando termine, en nuestr
 
 Ahora tenemos que encontrar la forma de que spaCy realice un análisis sintáctico de cada título, porque no queremos que nos diga que "cargo" puede ser el verbo "cargar" en presente: queremos que sepa que en "testigo de cargo", "cargo" es sólo (o muy probablemente) un sustantivo. O sea, queremos que *desambigüe*.
 
-Para ello nos descargamos un modelo lingüístico del español, con ```python3 -m spacy download es_core_news_sm```, y lo definimos en el script con ```nlp = spacy.load("es_core_news_sm")```
+Para ello nos descargamos un modelo lingüístico del español, con ```python3 -m spacy download es_core_news_lg```, y lo definimos en el script con ```nlp = spacy.load("es_core_news_lg")```
 
 Por último, vamos por cada peli de la lista, le pasamos el título a nuestro nuevo objeto lingüístico "nlp", y ya tenemos los datos de cada palabra: "text" es la palabra tal cual, "pos_" es la categoría gramatical, "morph" es la información morfológica (número, género...). Metemos toda esa información en un diccionario. 
 
