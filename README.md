@@ -28,10 +28,21 @@ Y lo primero que vamos a hacer es conseguir la información morfológica de cada
 ¿Y cómo consigo eso? Pues utilizando alguna herramienta de NLP. De entre todas las que existen para Python, vamos a empezar con Spacy, que parece la más versátil para nuestros propósitos.
 
 ## Análisis gramatical con spaCy.
-Primero lo instalamos con ```pip3 install -U spacy```. Tarda un montón, así que iré a poner la lavadora mientras.
-Y cuando termine, en nuestro script, ```import spacy```.
+Primero lo instalamos con ```pip3 install -U spacy```. Cuando termine, en nuestro script, ```import spacy```.
 
 Ahora tenemos que encontrar la forma de que spaCy realice un análisis sintáctico de cada título, porque no queremos que nos diga que "cargo" puede ser el verbo "cargar" en presente: queremos que sepa que en "testigo de cargo", "cargo" es sólo (o muy probablemente) un sustantivo. O sea, queremos que *desambigüe*.
+
+Para ello nos descargamos un modelo lingüístico del español, con ```python3 -m spacy download es_core_news_sm```, y lo definimos en el script con ```nlp = spacy.load("es_core_news_sm")```
+
+Por último, vamos por cada peli de la lista, le pasamos el título a nuestro nuevo objeto lingüístico "nlp", y ya tenemos definida cada palabra!
+
+```
+for peli in pelisoriginales:
+    doc = nlp(peli)
+    print(peli)
+    for token in doc:
+        print(token.text, token.pos_)
+ ```
 
 
 
