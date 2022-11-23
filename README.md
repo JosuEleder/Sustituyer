@@ -73,4 +73,24 @@ Me doy cuenta de que el número de formas para el castellano no es muy grande: u
     
 Con esto ya tendríamos la información para sustituir cada palabra por una de características similares, pero... ¿y la rima, que es lo que le da la gracia? ¡A ello!
     
-    
+##A rimar
+
+Mi primera intención era hacerme yo el esquema de rima para todas las palabras: crear un algoritmo de separación por sílabas, otro de acentuación, y otro que a partir de ahí extrajera el "modelo de rima consonante" de cada palabra para ver cuál rima con cuál. Y hubiera estado muy bien, si no fuera... ¡que alguien más lo ha hecho!
+
+Un tal Ruben Karlsson ha creado *pyverse* https://pypi.org/project/pyverse/ , un proyecto que literalmente cuenta las sílabas de una línea de texto y devuelve su métrica y su rima. Pues vamos a probarlo, ¿no?
+
+```
+def buscarima(palabra):
+    verse = Pyverse(palabra)
+    rima = verse.consonant_rhyme
+    return rima
+```
+Esto devuelve "abra" para "palabra", por ejemplo. Bien. Veo algún problema, como que da error con palabras como "el" o "de". En principio no nos importa porque sólo lo vamos a usar con sustantivos y adjetivos.
+
+Así que añadiremos el modelo de rima a cada palabra de los títulos que sea sustantivo o adjetivo: ```if (token.pos_=="ADJ" or token.pos_=="NOUN"): rima=buscarima(token.text)```
+
+¡Y parece que funciona!
+```
+{'original': 'Tiempos', 'POS': 'NOUN', 'numero': ['Plur'], 'genero': ['Masc'], 'rima': 'empos', 'nueva': '_Tiempos_'}
+{'original': 'modernos', 'POS': 'ADJ', 'numero': ['Plur'], 'genero': ['Masc'], 'rima': 'ernos', 'nueva': '_modernos_'}
+```
