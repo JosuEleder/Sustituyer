@@ -73,7 +73,7 @@ Me doy cuenta de que el número de formas para el castellano no es muy grande: u
     
 Con esto ya tendríamos la información para sustituir cada palabra por una de características similares, pero... ¿y la rima, que es lo que le da la gracia? ¡A ello!
     
-##A rimar
+## A rimar
 
 Mi primera intención era hacerme yo el esquema de rima para todas las palabras: crear un algoritmo de separación por sílabas, otro de acentuación, y otro que a partir de ahí extrajera el "modelo de rima consonante" de cada palabra para ver cuál rima con cuál. Y hubiera estado muy bien, si no fuera... ¡que alguien más lo ha hecho!
 
