@@ -46,11 +46,31 @@ for peli in pelis:
 ```
 Y veréis que en el diccionario he añadido ya un lugar para la palabra nueva, que se obtendría con la función "sustituye" (que por ahora no hace casi nada). Pronto volveremos a esto.
 
-## Acceder al diccionario y buscar palabras que rimen
+## Acceder al diccionario de todo el castellano
 
 Bien. Ya tenemos las palabras que queremos sustituir, y sabemos sus características morfológicas. ¿Cómo encontramos ahora una palabra que rime con ellas? Porque obviamente, no va a haber un módulo al que poder decirle "dame una palabra X que rime con tal".
 
-La primera opción que se me ocurre es bajarme un diccionario de español que contenga todas las formas (o sea, no sólo "blanco", sino también "blanca", "blancos" y "blancas"), y sus características gramaticales (POS, género y número), para poder identificar las palabras que necesitamos. Y cargarlo como un objeto diccionario en Python, para poder acceder a él con facilidad.
+No encuentro una forma de obtener un listado de todas las palabras del modelo con sus características. Así que la otra opción es bajarme un diccionario de español que contenga todas las formas (o sea, no sólo "blanco", sino también "blanca", "blancos" y "blancas"), y sus características gramaticales (POS, género y número), para poder identificar las palabras que necesitamos. Y cargarlo como un objeto diccionario en Python, para poder acceder a él con facilidad.
 
-Una posibilidad es descargarme los diccionarios de adjetivos y sustantivos de otro proyecto, FreeLing https://github.com/TALP-UPC/FreeLing/tree/master/data/es/dictionary/entries . Pero ¿no habrá una forma más sencilla?
+Así que nos bajamos a un directorio ```data``` los diccionarios de adjetivos y sustantivos de otro proyecto, FreeLing https://github.com/TALP-UPC/FreeLing/tree/master/data/es/dictionary/entries , MM.adj y MM.noun. y los parseamos, para hacer explícita su información. Metemos toda la info en una lista de cadenas, con formato XML, por si luego queremos exportarla. Por ahora queda así, por ejemplo para los adjetivos:
 
+```
+    d.append("<dic>")
+    with open("data/MM.adj") as f:
+        for linea in f:
+           (palabradic, lema, features) = linea.split()
+           l = "<p><forma>" + palabradic + "</forma><lema>"+lema+"</lema><POS>ADJ</POS>"
+           if features[2]=="F": l = l+"<genero>Fem</genero>"
+           if features[2]=="M": l = l+"<genero>Masc</genero>"
+           if features[2]=="C": l = l+"<genero>Fem,Masc</genero>"
+           if features[3]=="S": l = l+"<numero>Sing</numero>"
+           if features[3]=="P": l = l+"<numero>Plur</numero>"
+           l = l+"</p>"
+           d.append(l)
+    d.append("</dic>")
+    ```
+    Me doy cuenta de que el número de formas para el castellano no es muy grande: unas 170k formas. Pero por ahora nos bastará.
+    
+    Con esto ya tendríamos la información para sustituir cada palabra por una de características similares, pero... ¿y la rima, que es lo que le da la gracia? ¡A ello!
+    
+    
