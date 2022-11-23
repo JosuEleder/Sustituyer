@@ -96,4 +96,10 @@ Así que añadiremos el modelo de rima a cada palabra de los títulos que sea su
 ```
 Pues a poner el esquema de rimas de todo el diccionario.
 
-Primer problema: con "esternohioidea" (vale) el programa se rompe porque se ve que no esperaba esa combinación de vocales.
+Primer problema: con "esternohioidea" (vale) el programa se rompe porque se ve que no esperaba esa combinación de vocales. Bueno, podemos vivir con ello. Pongamos una excepción y listo.
+```
+            try:
+                rima = buscarima(palabradic)
+            except:
+                print("error en "+palabradic)
+```
