@@ -94,3 +94,6 @@ Así que añadiremos el modelo de rima a cada palabra de los títulos que sea su
 {'original': 'Tiempos', 'POS': 'NOUN', 'numero': ['Plur'], 'genero': ['Masc'], 'rima': 'empos', 'nueva': '_Tiempos_'}
 {'original': 'modernos', 'POS': 'ADJ', 'numero': ['Plur'], 'genero': ['Masc'], 'rima': 'ernos', 'nueva': '_modernos_'}
 ```
+Pues a poner el esquema de rimas de todo el diccionario.
+
+Primer problema: con "esternohioidea" (vale) el programa se rompe porque se ve que no esperaba esa combinación de vocales.
