@@ -46,5 +46,11 @@ for peli in pelis:
 ```
 Y veréis que en el diccionario he añadido ya un lugar para la palabra nueva, que se obtendría con la función "sustituye" (que por ahora no hace casi nada). Pronto volveremos a esto.
 
+## Acceder al diccionario y buscar palabras que rimen
 
+Bien. Ya tenemos las palabras que queremos sustituir, y sabemos sus características morfológicas. ¿Cómo encontramos ahora una palabra que rime con ellas? Porque obviamente, no va a haber un módulo al que poder decirle "dame una palabra X que rime con tal".
+
+La primera opción que se me ocurre es bajarme un diccionario de español que contenga todas las formas (o sea, no sólo "blanco", sino también "blanca", "blancos" y "blancas"), y sus características gramaticales (POS, género y número), para poder identificar las palabras que necesitamos. Y cargarlo como un objeto diccionario en Python, para poder acceder a él con facilidad.
+
+Una posibilidad es descargarme los diccionarios de adjetivos y sustantivos de otro proyecto, FreeLing https://github.com/TALP-UPC/FreeLing/tree/master/data/es/dictionary/entries . Pero ¿no habrá una forma más sencilla?
 
