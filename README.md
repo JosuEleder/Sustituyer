@@ -106,3 +106,5 @@ def buscarima(palabra):
         print("error en " + palabra)
     return rima
 ```
+
+Pues, a falta de detallitos posteriores, sólo nos queda el último paso: sacar del diccionario todas las palabras que rimen con cada una de las sustituibles (y que cumplan el resto de las condiciones) y elegir una al azar. ¡Vamos!
