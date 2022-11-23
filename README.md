@@ -68,7 +68,7 @@ Así que nos bajamos a un directorio ```data``` los diccionarios de adjetivos y 
            l = l+"</p>"
            d.append(l)
     d.append("</dic>")
-    ```
+```
     Me doy cuenta de que el número de formas para el castellano no es muy grande: unas 170k formas. Pero por ahora nos bastará.
     
     Con esto ya tendríamos la información para sustituir cada palabra por una de características similares, pero... ¿y la rima, que es lo que le da la gracia? ¡A ello!
