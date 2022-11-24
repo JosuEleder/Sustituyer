@@ -179,5 +179,22 @@ Otro caso raro: ¿por qué no da "eternos", por ejemplo? Aquí no hay mayúscula
 
 El análisis es correcto: ```{'original': 'modernos', 'POS': 'ADJ', 'numero': 'Plur', 'genero': 'Masc', 'rima': 'ernos', 'silabas': 3, 'nueva': 'modernos'}```, mientras que el diccionario da para "eternos" también lo que esperamos: ```<p><forma>eternos</forma><lema>eterno</lema><POS>ADJ</POS><rima>ernos</rima><silabas>3</silabas></p>```... espera, ¿por qué no pone el género y número en los adjetivos? Vale, porque en el campo "features" que nos devuelve el diccionario, los datos de género y número no están en el mismo lugar que en el sustantivo, sino un carácter por delante. Aay, FreeLing, normalización, por favor... Bueno, se arregla rápido. Ya tenemos *Tempos internos*!
 
-## Más mejoras
+## Mejoras pendientes
+
+vamos a irlas dejando aquí apuntadas.
+
+### Palabras muy raras
 Una cosa que no me convence es que a veces saca palabras extremadamente poco conocidas: vale, es posible que la única rima para "ruido" sea "suido", pero ¿vosotros sabíais que un "suido" era un "mamífero del grupo de los artiodáctilos paquidermos, con jeta bien desarrollada y caninos largos y fuertes, que sobresalen de la boca, como por ejemplo el jabalí"? Pues hala, cuando veáis a un jabalí se lo podéis decir. Pero estaría bien que aquí salieran palabras sólo con un mínimo de frecuencia. ¿Cómo podría hacerse? No parece claro que desde spaCy pueda hacerse nativamente...
+
+### Mayúsculas
+He hecho un cambio pequeño para que vuelva a poner la palabra inicial con mayúsculas: ```if primerapalabra==1: p["nueva"]=p["nueva"].capitalize()```.
+
+Sigue estando pendiente qué pasa si la palabra con mayúsculas está en medio de la frase (para permitir títulos como "Luces de la Ciudad". No debe ser difícil, pero lo dejo para más adelante.
+
+### Errores en pyverse
+He visto dos:
+* El error cuando le das una palabra con tres vocales seguidas, tipo "radioautografía"
+* El error cuando le das una "stop word", como "si"
+
+### Sinalefas
+Una cosa que me gustaría añadir es que la sustitución tuviera en cuenta las sinalefas. Por ejemplo, que "Al final de la escapada" no se sustituya por "Al panal de la mermelada", sino por otra que empiece por vocal, como "Al final de la ensenada". Pero esto me lo dejo como "nice-to-have".
