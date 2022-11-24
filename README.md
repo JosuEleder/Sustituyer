@@ -6,6 +6,7 @@ No, no sirve para nada más: es un experimento para practicar la combinación de
 ## Las características
 Cada palabra sustituída debe tener las siguientes características:
 * Misma categoría gramatical (sustantivo o adjetivo, en principio)
+* Mismos género y número
 * Mismo número de sílabas
 * Rima consonante
 * Y, si puedo, que comience por el mismo patrón de vocal o consonante para evitar hiatos o diptongos forzados y hacer la equivalencia más afinada
