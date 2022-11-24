@@ -108,3 +108,76 @@ def buscarima(palabra):
 ```
 
 Pues, a falta de detallitos posteriores, sólo nos queda el último paso: sacar del diccionario todas las palabras que rimen con cada una de las sustituibles (y que cumplan el resto de las condiciones) y elegir una al azar. ¡Vamos!
+
+## Escoger sustituta
+Entonces, por cada sustantivo o adjetivo, repasamos todo el diccionario para ver las que cumplen las mismas condiciones (misma rima, mismo número de sílabas, misma POS, mismo género y número), y confirmando además que no se trate de la misma palabra; ponemos todas las candidatas en una lista, sacamos un número al azar y esa es la palabra que va a sustituir.
+
+```
+    for i in d:
+        if ("<rima>"+rima+"</rima>" in i and "<silabas>"+str(silabas)+"</silabas>" in i and "<POS>"+POS+"</POS>" in i and "<genero>"+genero+"</genero>" in i and "<numero>"+numero+"</numero>" in i and "<forma>"+palabra+"</forma>" not in i): candidatas.append(i)
+    if len(candidatas)==0:
+        nueva=palabra
+    else:
+        escogida = random.randint(0,len(candidatas)-1)
+        nueva = candidatas[escogida][10:candidatas[escogida].index("</forma>")]
+```
+
+¡Y aquí tenemos un primer resultado!
+
+```
+El padrino
+El rechino
+
+Doce hombres sin piedad
+Doce nombres sin maldad
+
+La lista de Schindler
+La vista de Schindler
+
+Testigo de cargo
+abrigo de sargo
+
+Luces de la ciudad
+cruces de la mitad
+
+El gran dictador
+El gran resquemor
+
+Lo que el viento se llevó
+Lo que el tiento se llevó
+
+Alguien voló sobre el nido del cuco
+Alguien voló sobre el ruido del buco
+```
+
+No está nada mal, ¿verdad?
+
+Pero quedan cosas pendientes. El tema de las mayúsculas es una. Y otra es que ha habido unas cuantas donde no ha sugerido nada. A ver si descubrimos por qué.
+
+## Arreglando detalles
+*Cadena perpetua* y *Tiempos modernos* se han quedado igual. Tocará debuggear para ver qué ha pasado.
+
+### "Cadena"
+"Cadena" debería haber dado un buen conjunto de candidatos, como por ejemplo "melena". No se trata de un problema con la mayúscula, porque vemos que "Luces" lo ha sustiuido bien por "cruces". ¿Entonces?
+
+En el diccionario está todo correcto: ```<p><forma>cadena</forma><lema>cadena</lema><POS>NOUN</POS><genero>Fem</genero><numero>Sing</numero><rima>ena</rima><silabas>3</silabas></p>```. ¡Ajajá! Pero el analizador de spaCy da "Cadena" como si fuera un nombre propio: ```{'original': 'Cadena', 'POS': 'PROPN', 'numero': '', 'genero': '', 'rima': '', 'silabas': 0, 'nueva': 'Cadena'}```. ¿Y por qué no lo hace con "Luces"? Misterio.
+
+Siempre podemos decirle que realice la sustitución en los nombres propios también, y tendríamos algo así como "Vacaciones en Roma" > "Colaciones en Goma".
+
+O también podemos pasar la palabra inicial a minúsculas, pero claro, eso nos fastidiará casos como "Rebeca".
+
+A pensarlo.
+
+### "perpetua"
+Esto es normal: es una palabra rara y no existe en nuestro diccionario ninguna otra de 3 sílabas con la misma rima. Así que todo bien.
+
+### "Tiempos"
+Vale. Aqui es otra vez la mayúscula dando un poco por saco. A veces el programa saca "tempos" (correcto", y a veces nos devuelve la misma, "tiempos". ¿Por qué? Porque al ir a comprobar que no nos sugiera la misma palabra, la comprobación falla por culpa de la mayúscula. Así que pasamos a minúscula en el momento de la comprobación y listo: ```and "<forma>"+palabra.lower()+"</forma>" not in i```
+
+### "modernos"
+Otro caso raro: ¿por qué no da "eternos", por ejemplo? Aquí no hay mayúscula que valga...
+
+El análisis es correcto: ```{'original': 'modernos', 'POS': 'ADJ', 'numero': 'Plur', 'genero': 'Masc', 'rima': 'ernos', 'silabas': 3, 'nueva': 'modernos'}```, mientras que el diccionario da para "eternos" también lo que esperamos: ```<p><forma>eternos</forma><lema>eterno</lema><POS>ADJ</POS><rima>ernos</rima><silabas>3</silabas></p>```... espera, ¿por qué no pone el género y número en los adjetivos? Vale, porque en el campo "features" que nos devuelve el diccionario, los datos de género y número no están en el mismo lugar que en el sustantivo, sino un carácter por delante. Aay, FreeLing, normalización, por favor... Bueno, se arregla rápido. Ya tenemos *Tempos internos*!
+
+## Más mejoras
+Una cosa que no me convence es que a veces saca palabras extremadamente poco conocidas: vale, es posible que la única rima para "ruido" sea "suido", pero ¿vosotros sabíais que un "suido" era un "mamífero del grupo de los artiodáctilos paquidermos, con jeta bien desarrollada y caninos largos y fuertes, que sobresalen de la boca, como por ejemplo el jabalí"? Pues hala, cuando veáis a un jabalí se lo podéis decir. Pero estaría bien que aquí salieran palabras sólo con un mínimo de frecuencia. ¿Cómo podría hacerse? No parece claro que desde spaCy pueda hacerse nativamente...
