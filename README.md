@@ -180,6 +180,12 @@ Otro caso raro: ¿por qué no da "eternos", por ejemplo? Aquí no hay mayúscula
 
 El análisis es correcto: ```{'original': 'modernos', 'POS': 'ADJ', 'numero': 'Plur', 'genero': 'Masc', 'rima': 'ernos', 'silabas': 3, 'nueva': 'modernos'}```, mientras que el diccionario da para "eternos" también lo que esperamos: ```<p><forma>eternos</forma><lema>eterno</lema><POS>ADJ</POS><rima>ernos</rima><silabas>3</silabas></p>```... espera, ¿por qué no pone el género y número en los adjetivos? Vale, porque en el campo "features" que nos devuelve el diccionario, los datos de género y número no están en el mismo lugar que en el sustantivo, sino un carácter por delante. Aay, FreeLing, normalización, por favor... Bueno, se arregla rápido. Ya tenemos *Tempos internos*!
 
+### Signos de puntuación
+He hecho una ñapa para que salgan bien los principales. Más adelante ya lo haré mejor.
+```
+    frasenueva = re.sub(' (\?|,|\.|!)', r'\1', frasenueva)
+    frasenueva = re.sub('(\¿|!) ', r'\1', frasenueva)
+```
 ## Posibles mejoras
 
 Vamos a irlas dejando aquí apuntadas.
