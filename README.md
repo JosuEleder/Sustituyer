@@ -183,9 +183,15 @@ El análisis es correcto: ```{'original': 'modernos', 'POS': 'ADJ', 'numero': 'P
 ### Signos de puntuación
 He hecho una ñapa para que salgan bien los principales. Más adelante ya lo haré mejor.
 ```
-    frasenueva = re.sub(' (\?|,|\.|!)', r'\1', frasenueva)
-    frasenueva = re.sub('(\¿|!) ', r'\1', frasenueva)
+    frasenueva = re.sub(' (\?|,|\)|;|\:|\-|\.|!)', r'\1', frasenueva)
+    frasenueva = re.sub('(\¿|¡|\() ', r'\1', frasenueva)
 ```
+
+## Ampliamos las pruebas
+
+Ahora cojo las 100 películas mejor punteadas en FilmAffinity. A ver qué nos encontramos.
+
+
 ## Posibles mejoras
 
 Vamos a irlas dejando aquí apuntadas.
@@ -202,6 +208,10 @@ Sigue estando pendiente qué pasa si la palabra con mayúsculas está en medio d
 He visto dos:
 * El error cuando le das una palabra con tres vocales seguidas, tipo "radioautografía"
 * El error cuando le das una "stop word", como "si"
+
+### "desnudo"
+"Eva al desnudo" falla porque en el diccionario que uso no aparece "desnudo" como sustantivo. O lo añado, o le hago una rutina para que cuando no encuentra un sustantivo lo busque como adjetivo.
+
 
 ### Sinalefas
 Una cosa que me gustaría añadir es que la sustitución tuviera en cuenta las sinalefas. Por ejemplo, que "Al final de la escapada" no se sustituya por "Al panal de la mermelada", sino por otra que empiece por vocal, como "Al final de la ensenada". Pero esto me lo dejo como "nice-to-have".
