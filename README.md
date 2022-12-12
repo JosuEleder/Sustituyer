@@ -187,22 +187,22 @@ He hecho una ñapa para que salgan bien los principales. Más adelante ya lo har
     frasenueva = re.sub('(\¿|¡|\() ', r'\1', frasenueva)
 ```
 
-## Ampliamos las pruebas
+## APIs
 
-Ahora cojo las 100 películas mejor punteadas en FilmAffinity. A ver qué nos encontramos.
+Bien. La idea es que este código sea accesible por medio de un bot (en Mastodon y Twitter). Y que tenga dos modos de uso: uno interactivo (que el usuario le dé un título y él responda con su sustitución), y otro autónomo (que cada X tiempo vaya posteando títulos sustituídos). Empecemos por el primero.
+
+### Modo interactivo
 
 
 ## Posibles mejoras
 
 Vamos a irlas dejando aquí apuntadas.
 
+### Mayúsculas
+El analizador que estoy usando parece que identifica como nombre propio cualquier palabra con mayúscula que no sea la inicial. Y además no les asigna género ni número. Así que el resultado en nombres como "Doce Hombres sin Piedad" no iba a ser muy bueno. Por ahora dejo que solo pueda ir en mayúscula la primera palabra del título, y ya veremos más adelante.
+
 ### Palabras muy raras
 Una cosa que no me convence es que a veces saca palabras extremadamente poco conocidas: vale, es posible que la única rima para "ruido" sea "suido", pero ¿vosotros sabíais que un "suido" era un "mamífero del grupo de los artiodáctilos paquidermos, con jeta bien desarrollada y caninos largos y fuertes, que sobresalen de la boca, como por ejemplo el jabalí"? Pues hala, cuando veáis a un jabalí se lo podéis decir. Pero estaría bien que aquí salieran palabras sólo con un mínimo de frecuencia. ¿Cómo podría hacerse? No parece claro que desde spaCy pueda hacerse nativamente...
-
-### Mayúsculas
-He hecho un cambio pequeño para que vuelva a poner la palabra inicial con mayúsculas: ```if primerapalabra==1: p["nueva"]=p["nueva"].capitalize()```.
-
-Sigue estando pendiente qué pasa si la palabra con mayúsculas está en medio de la frase (para permitir títulos como "Luces de la Ciudad". No debe ser difícil, pero lo dejo para más adelante.
 
 ### Errores en pyverse
 He visto dos:
@@ -212,14 +212,6 @@ He visto dos:
 ### "desnudo"
 "Eva al desnudo" falla porque en el diccionario que uso no aparece "desnudo" como sustantivo. O lo añado, o le hago una rutina para que cuando no encuentra un sustantivo lo busque como adjetivo.
 
-
 ### Sinalefas
 Una cosa que me gustaría añadir es que la sustitución tuviera en cuenta las sinalefas. Por ejemplo, que "Al final de la escapada" no se sustituya por "Al panal de la mermelada", sino por otra que empiece por vocal, como "Al final de la ensenada". Pero esto me lo dejo como "nice-to-have".
-
-### Nombres propios
-¿Los sustituimos o no? ¿"Vicky Cabina Silicona"? A pensarlo.
-
-### Errores de análisis de spaCy
-Como el de "Cadena". Supongo que va a ser complicado meterle mano. Opción: gestionar más inteligentemente las mayúsculas iniciales.
-
 
