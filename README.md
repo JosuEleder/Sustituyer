@@ -193,6 +193,7 @@ Bien. La idea es que este código sea accesible por medio de un bot (en Mastodon
 
 ### Modo interactivo
 
+He preparado un bot que escucha constantemente el stream de Twitter y busca "@sustituyer rima" y un título, y responde con un nuevo tweet con el título cambiado. Lo que pasa es que por alguna razón lo hace dos veces, y tengo que ver por qué.
 
 ## Posibles mejoras
 
