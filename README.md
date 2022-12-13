@@ -193,6 +193,13 @@ Bien. La idea es que este código sea accesible por medio de un bot (en Mastodon
 
 He preparado un bot que escucha constantemente el stream de Twitter y busca "@sustituyer rima" y un título, y responde con un nuevo tweet con el título cambiado. Me daba el problema de que me procesaba también los tuits escritos por el bot mismo, lo que he arreglado poniendo la regla así: ```rule = StreamRule(value="sustituyer #rima -from:sustituyer")```. Es mejorable, iremos viendo.
 
+### Modo autónomo
+
+La idea es cargar un listado de 1000 títulos y que los vaya ofreciendo al azar cada dos horas o así. Para esto necesitaré:
+-un listado de títulos cargados en un array
+-una función que escoja al azar uno de los títulos, lo sustituya, y devuelva la nueva versión. Si la versión coincide con el original, volver a hacerlo
+-cada vez que se mira un título, marcarlo de algún modo para que no se repita
+
 ## Posibles mejoras
 
 Vamos a irlas dejando aquí apuntadas.
@@ -214,6 +221,7 @@ He visto dos:
 ### Sinalefas
 Una cosa que me gustaría añadir es que la sustitución tuviera en cuenta las sinalefas. Por ejemplo, que "Al final de la escapada" no se sustituya por "Al panal de la mermelada", sino por otra que empiece por vocal, como "Al final de la ensenada". Pero esto me lo dejo como "nice-to-have".
 
-## Ventana
-El analizador a veces da "ventana" como PROPN, aunque vaya en minúsculas: desconcertante. Todavía voy a tener que hacer algo con los nombres propios...
+### rima
+Ahora mismo hace falta ponerle #rima para que sepa que es una query, pero poca gente lo va a hacer, tengo que pensar si hacerlo distinto
+
 
