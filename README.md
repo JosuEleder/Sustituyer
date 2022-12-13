@@ -214,3 +214,6 @@ He visto dos:
 ### Sinalefas
 Una cosa que me gustaría añadir es que la sustitución tuviera en cuenta las sinalefas. Por ejemplo, que "Al final de la escapada" no se sustituya por "Al panal de la mermelada", sino por otra que empiece por vocal, como "Al final de la ensenada". Pero esto me lo dejo como "nice-to-have".
 
+## Ventana
+El analizador a veces da "ventana" como PROPN, aunque vaya en minúsculas: desconcertante. Todavía voy a tener que hacer algo con los nombres propios...
+
