@@ -165,9 +165,7 @@ En el diccionario está todo correcto: ```<p><forma>cadena</forma><lema>cadena</
 
 Siempre podemos decirle que realice la sustitución en los nombres propios también, y tendríamos algo así como "Vacaciones en Roma" > "Colaciones en Goma".
 
-O también podemos pasar la palabra inicial a minúsculas, pero claro, eso nos fastidiará casos como "Rebeca".
-
-A pensarlo.
+Pero es un riesgo. Mejor cambiar la mayúscula inicial a minúscula, y luego volver a ponerla. Hecho.
 
 ### "perpetua"
 Esto es normal: es una palabra rara y no existe en nuestro diccionario ninguna otra de 3 sílabas con la misma rima. Así que todo bien.
@@ -193,7 +191,7 @@ Bien. La idea es que este código sea accesible por medio de un bot (en Mastodon
 
 ### Modo interactivo
 
-He preparado un bot que escucha constantemente el stream de Twitter y busca "@sustituyer rima" y un título, y responde con un nuevo tweet con el título cambiado. Lo que pasa es que por alguna razón lo hace dos veces, y tengo que ver por qué.
+He preparado un bot que escucha constantemente el stream de Twitter y busca "@sustituyer rima" y un título, y responde con un nuevo tweet con el título cambiado. Me daba el problema de que me procesaba también los tuits escritos por el bot mismo, lo que he arreglado poniendo la regla así: ```rule = StreamRule(value="sustituyer #rima -from:sustituyer")```. Es mejorable, iremos viendo.
 
 ## Posibles mejoras
 
