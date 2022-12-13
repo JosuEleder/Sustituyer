@@ -222,6 +222,8 @@ He visto dos:
 Una cosa que me gustaría añadir es que la sustitución tuviera en cuenta las sinalefas. Por ejemplo, que "Al final de la escapada" no se sustituya por "Al panal de la mermelada", sino por otra que empiece por vocal, como "Al final de la ensenada". Pero esto me lo dejo como "nice-to-have".
 
 ### rima
-Ahora mismo hace falta ponerle #rima para que sepa que es una query, pero poca gente lo va a hacer, tengo que pensar si hacerlo distinto
+Ahora mismo hace falta ponerle #rima para que sepa que es una query, pero poca gente lo va a hacer, tengo que pensar si hacerlo distinto.
+
+Y encima, si la primera vez lo has puesto, y luego alguien hace una reply y habla de otra cosa, sigue funcionando!! Esto hay que mirarlo...
 
 
