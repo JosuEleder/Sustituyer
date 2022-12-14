@@ -227,3 +227,8 @@ Ahora mismo hace falta ponerle #rima para que sepa que es una query, pero poca g
 Y encima, si la primera vez lo has puesto, y luego alguien hace una reply y habla de otra cosa, sigue funcionando!! Esto hay que mirarlo...
 
 
+## Agradecimientos
+Hemos usado parte de los siguientes proyectos:
+https://github.com/explosion/spaCy
+https://github.com/TALP-UPC/FreeLing
+https://github.com/neburnodrog/Pyverse
