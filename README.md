@@ -63,7 +63,7 @@ Así que nos bajamos a un directorio ```data``` los diccionarios de adjetivos y 
            l = "<p><forma>" + palabradic + "</forma><lema>"+lema+"</lema><POS>ADJ</POS>"
            if features[3]=="F": l = l+"<genero>Fem</genero>"
            if features[3]=="M": l = l+"<genero>Masc</genero>"
-           if features[3]=="C": l = l+"<genero>Fem</genero><genero>Masc</genero>"
+           if features[3]=="C": l = l+"<genero>Fem,Masc</genero>"
            if features[4]=="S": l = l+"<numero>Sing</numero>"
            if features[4]=="P": l = l+"<numero>Plur</numero>"
            l = l+"</p>"
