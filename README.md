@@ -185,6 +185,13 @@ He hecho una ñapa para que salgan bien los principales. Más adelante ya lo har
     frasenueva = re.sub('(\¿|¡|\() ', r'\1', frasenueva)
 ```
 
+### Palabras muy raras
+Una cosa que no me convencía es que a veces sacaba palabras extremadamente poco conocidas: vale, es posible que la única rima para "ruido" sea "suido", pero ¿vosotros sabíais que un "suido" era un "mamífero del grupo de los artiodáctilos paquidermos, con jeta bien desarrollada y caninos largos y fuertes, que sobresalen de la boca, como por ejemplo el jabalí"? Pues hala, cuando veáis a un jabalí se lo podéis decir. Pero estaría bien que aquí salieran palabras sólo con un mínimo de frecuencia. ¿Cómo podría hacerse? No parece claro que desde spaCy pueda hacerse nativamente...
+
+Tras varios comentarios de usuarios alfa, me pongo a implementarlo. Cojo un listado de las 10k palabras más comunes del castellano según la RAE: http://corpus.rae.es/frec/10000_formas.TXT
+
+Y he hecho que en el momento de crearse el diccionario, compare con este fichero y sólo deje las que estén en ambas. Así las sugerencias son más reconocibles.
+
 ## APIs
 
 Bien. La idea es que este código sea accesible por medio de un bot (en Mastodon y Twitter). Y que tenga dos modos de uso: uno interactivo (que el usuario le dé un título y él responda con su sustitución), y otro autónomo (que cada X tiempo vaya posteando títulos sustituídos). Empecemos por el primero.
@@ -199,6 +206,7 @@ La idea es cargar un listado de 1000 títulos y que los vaya ofreciendo al azar 
 -un listado de títulos cargados en un array
 -una función que escoja al azar uno de los títulos, lo sustituya, y devuelva la nueva versión. Si la versión coincide con el original, volver a hacerlo
 -cada vez que se mira un título, marcarlo de algún modo para que no se repita
+Esto será más adelante.
 
 ## Posibles mejoras
 
@@ -206,9 +214,6 @@ Vamos a irlas dejando aquí apuntadas.
 
 ### Mayúsculas
 El analizador que estoy usando parece que identifica como nombre propio cualquier palabra con mayúscula que no sea la inicial. Y además no les asigna género ni número. Así que el resultado en nombres como "Doce Hombres sin Piedad" no iba a ser muy bueno. Por ahora dejo que solo pueda ir en mayúscula la primera palabra del título, y ya veremos más adelante.
-
-### Palabras muy raras
-Una cosa que no me convence es que a veces saca palabras extremadamente poco conocidas: vale, es posible que la única rima para "ruido" sea "suido", pero ¿vosotros sabíais que un "suido" era un "mamífero del grupo de los artiodáctilos paquidermos, con jeta bien desarrollada y caninos largos y fuertes, que sobresalen de la boca, como por ejemplo el jabalí"? Pues hala, cuando veáis a un jabalí se lo podéis decir. Pero estaría bien que aquí salieran palabras sólo con un mínimo de frecuencia. ¿Cómo podría hacerse? No parece claro que desde spaCy pueda hacerse nativamente...
 
 ### Errores en pyverse
 He visto dos:
@@ -232,3 +237,4 @@ Hemos usado parte de los siguientes proyectos:
 https://github.com/explosion/spaCy
 https://github.com/TALP-UPC/FreeLing
 https://github.com/neburnodrog/Pyverse
+https://github.com/webpwnized/byepass
