@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_auto_bot.py", line 2, in <module>
+    from sustituyer_main import procesafrase
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_main.py", line 162, in <module>
+    creardiccionario()
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_main.py", line 32, in creardiccionario
+    with open("data/10000_formas.txt",'r') as fichero_comunes:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/10000_formas.txt'
+Traceback (most recent call last):
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_auto_bot.py", line 2, in <module>
+    from sustituyer_main import procesafrase
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_main.py", line 162, in <module>
+    creardiccionario()
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_main.py", line 32, in creardiccionario
+    with open("data/10000_formas.txt",'r') as fichero_comunes:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/10000_formas.txt'
+Traceback (most recent call last):
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_auto_bot.py", line 2, in <module>
+    from sustituyer_main import procesafrase
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_main.py", line 162, in <module>
+    creardiccionario()
+  File "/mnt/c/Soft/JosuEleder/Sustituyer/sustituyer_main.py", line 32, in creardiccionario
+    with open("data/10000_formas.txt",'r') as fichero_comunes:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/10000_formas.txt'
+Azul y no tan rosa:
+Azul y no tan sosa
+Los días más oscuros de nosotras:
+Los días más seguros de nosotras
+Los tres mosqueteros:
+Los tres prisioneros
+Viaje al centro de la Tierra:
+Traje al centro de la Tierra
+Desafinado:
+Inesperado
+Una función para olvidar:
+Una sección para olvidar
+Desierto adentro:
+Cubierto adentro
+El club de los chalados II:
+El club de los pesados II
+Destello bravío:
+Cabello vacío
+Pasajero 666:
+Prisionero 666
+Misión: Imposible. Protocolo Fantasma:
+Tensión: Imposible. Protocolo Fantasma
+Como matar a papá... sin hacerle daño:
+Como matar a sofá... sin hacerle año
+El arte de volver:
+El parte de volver
+The Long Kill (La justicia de los forajidos):
+The Long Kill (La patricia de los definidos)
+Los emigrantes:
+Los dominantes
+El acento de la mirada:
+El aumento de la pesada
+Ghost in the Shell: El alma de la máquina:
+Ghost in the Shell: El palma de la máquina
+Niñera a la fuerza:
+Madera a la fuerza
+Los seis signos de la luz:
+Los seis signos de la cruz
+Esto no es un atraco:
+Esto no es un tabaco
