@@ -62,3 +62,11 @@ Los seis signos de la luz:
 Los seis signos de la cruz
 Esto no es un atraco:
 Esto no es un tabaco
+Traceback (most recent call last):
+  File "/mnt/c/Users/josug/Projects/Sustituyer/sustituyer_auto_bot.py", line 18, in <module>
+    for datospeli in open("data/movies_clean.txt", "r"): 
+FileNotFoundError: [Errno 2] No such file or directory: 'data/movies_clean.txt'
+Traceback (most recent call last):
+  File "/mnt/c/Users/josug/Projects/Sustituyer/sustituyer_auto_bot.py", line 18, in <module>
+    for datospeli in open("data/movies_clean.txt", "r"): 
+FileNotFoundError: [Errno 2] No such file or directory: 'data/movies_clean.txt'
