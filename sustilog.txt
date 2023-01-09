@@ -82,3 +82,7 @@ Traceback (most recent call last):
   File "/mnt/c/Users/josug/Projects/Sustituyer/sustituyer_auto_bot.py", line 18, in <module>
     for datospeli in open("/mnt/c/Users/josug/Projects/Sustituyer/data/movies_clean.txt", "r"): 
 FileNotFoundError: [Errno 2] No such file or directory: './data/movies_clean.txt'
+Traceback (most recent call last):
+  File "/mnt/c/Users/josug/Projects/Sustituyer/sustituyer_auto_bot.py", line 24, in <module>
+    pelioriginal = pelis[numero][0].rstrip()
+IndexError: list index out of range
