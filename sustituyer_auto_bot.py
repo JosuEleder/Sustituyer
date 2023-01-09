@@ -15,7 +15,7 @@ auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
 pelis = []
-for datospeli in open("data/movies_clean.txt", "r"): 
+for datospeli in open("/mnt/c/Users/josug/Projects/Sustituyer/data/movies_clean.txt", "r"): 
     peli = datospeli.split("\t")
     pelis.insert(0, peli)
 
