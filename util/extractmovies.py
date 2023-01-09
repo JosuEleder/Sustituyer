@@ -6,15 +6,15 @@ firstpages = []
 pages = []
 movies = []
 firstyear = 1920
-lastyear = 2024
+lastyear = 1924
 
 def extractmovies(soup):
     collection = soup.find(id="collections") 
     h3s = collection.find_all("h3")
     for h3 in h3s:
-        print(h3.string)
         if len(h3.find_all("a"))>0 and h3.parent.has_attr("data-puntuacion"):
-            movie = {"name":h3.string, "punctuation":h3.parent["data-puntuacion"]}
+            link = "https://www.elseptimoarte.net" + h3.a["href"]
+            movie = {"name":h3.string, "punctuation":h3.parent["data-puntuacion"], "link":link}
             movies.append(movie)
 
 # Creo un array de la primera página de cada año
@@ -39,4 +39,4 @@ for firstpage in firstpages:
 
 for movie in movies:
         if movie["punctuation"][0] in ("9", "8", "7"):
-            print(movie["name"])
+            print(movie["name"], movie["punctuation"], movie["link"])
