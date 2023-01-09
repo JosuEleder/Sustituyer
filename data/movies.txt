@@ -799,7 +799,7 @@ Los fantasmas no pueden... hacerlo	8,0	https://www.elseptimoarte.net/peliculas/g
 Abyss	7,6	https://www.elseptimoarte.net/peliculas/the-abyss-4245.html
 Tango y Cash	7,1	https://www.elseptimoarte.net/peliculas/tango-y-cash-3360.html
 Montoyas y Tarantos	7,4	https://www.elseptimoarte.net/peliculas/montoyas-y-tarantos-16850.html
- Las cosas del querer	7,0	https://www.elseptimoarte.net/peliculas/-las-cosas-del-querer-16856.html
+Las cosas del querer	7,0	https://www.elseptimoarte.net/peliculas/-las-cosas-del-querer-16856.html
 Regreso al futuro II	7,2	https://www.elseptimoarte.net/peliculas/back-to-the-future--part-ii-9014.html
 S.O.S. ¡Ya es Navidad!	7,8	https://www.elseptimoarte.net/peliculas/national-lampoons-christmas-vacation-8930.html
 Solos con nuestro tío	7,4	https://www.elseptimoarte.net/peliculas/uncle-buck-5860.html
@@ -994,7 +994,7 @@ La lista de Schindler	8,3	https://www.elseptimoarte.net/peliculas/la-lista-de-sc
 Pesadilla antes de Navidad	8,4	https://www.elseptimoarte.net/peliculas/el-extrano-mundo-de-jack-3d-1015.html
 Jurassic Park (Parque jurásico)	8,7	https://www.elseptimoarte.net/peliculas/parque-jurasico-398.html
 En el nombre del padre	8,2	https://www.elseptimoarte.net/peliculas/en-el-nombre-del-padre-6304.html
- El Mono de Hierro (Iron Monkey)	8,1	https://www.elseptimoarte.net/peliculas/el-mono-de-hierro-6413.html
+El Mono de Hierro (Iron Monkey)	8,1	https://www.elseptimoarte.net/peliculas/el-mono-de-hierro-6413.html
 ¿A quién ama Gilbert Grape?	7,6	https://www.elseptimoarte.net/peliculas/a-quien-ama-gilbert-grape-9048.html
 Atrapado en el tiempo	9,4	https://www.elseptimoarte.net/peliculas/groundhog-day-8703.html
 Atrapado por su pasado	8,7	https://www.elseptimoarte.net/peliculas/carlitos-way-16528.html

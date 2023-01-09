@@ -119,7 +119,7 @@ def procesafrase(frase):
     if frase[0].isupper():
         caps=1
         frase=frase[0].lower() + frase[1:]
-    # Se lanza el análisis lingüístico de la frase con el "nlp" de spaCy
+        # Se lanza el análisis lingüístico de la frase con el "nlp" de spaCy
     doc = nlp(frase)
     # spaCy devuelve cada palabra en un objeto "token" con diferente información. 
     for token in doc:
@@ -146,7 +146,7 @@ def procesafrase(frase):
             nueva = sustituye(token.text, token.pos_, numero, genero, rima, silabas)
         # Se imprime la info en consola para debug
         p = {"original":token.text, "POS":token.pos_, "numero":numero, "genero":genero, "rima":rima, "silabas":silabas, "nueva":nueva}
-        #print(p)
+        # print(p)
         frasenueva = frasenueva+p["nueva"]+" "
     # A la frase nueva se le arreglan los signos de puntuación 
     frasenueva = re.sub(' (\?|,|\)|;|\:|\-|\.|!)', r'\1', frasenueva)

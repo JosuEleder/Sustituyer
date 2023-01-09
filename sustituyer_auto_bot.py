@@ -14,15 +14,17 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-titulos = []
-for titulo in open("/mnt/c/Soft/JosuEleder/Sustituyer/data/movies_clean.txt", "r"): titulos.append(titulo)
+pelis = []
+for datospeli in open("data/movies_clean.txt", "r"): 
+    peli = datospeli.split("\t")
+    pelis.insert(0, peli)
 
 #random.choice
-numero = random.randint(0, len(titulos))
-pelioriginal = titulos[numero].rstrip()
+numero = random.randint(0, len(pelis))
+pelioriginal = pelis[numero][0].rstrip()
+enlaceoriginal = pelis[numero][2].rstrip()
 pelinueva = procesafrase(pelioriginal)
-tuit= pelioriginal+":\n"+pelinueva
-
+tuit= pelioriginal+" ("+enlaceoriginal+"):\n"+pelinueva
 
 api.update_status(status=tuit)
         

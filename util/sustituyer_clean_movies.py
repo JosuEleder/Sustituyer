@@ -7,6 +7,6 @@ import re
 with open("../data/movies.txt", "r") as movies:
     for movie in movies:
         movievalues = movie.split("\t")
-        print(movievalues[0])
-        nuevamovie = procesafrase(movie[0].rstrip())
-        if not(movie[0].rstrip().lower() == nuevamovie.lower()): print(movie[0].rstrip())
+        nuevamovie = procesafrase(movie[0].strip())
+        if not(movievalues[0].strip().lower() == nuevamovie.lower()):
+            print(movievalues[0].strip() +"\t"+ movievalues[1].strip() +"\t"+ movievalues[2].strip())

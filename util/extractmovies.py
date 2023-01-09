@@ -39,4 +39,4 @@ for firstpage in firstpages:
 
 for movie in movies:
         if movie["punctuation"][0] in ("9", "8", "7"):
-            print(movie["name"] + "\t" + movie["punctuation"] + "\t" + movie["link"])
+            print(movie["name"].strip() + "\t" + movie["punctuation"].strip() + "\t" + movie["link"].strip())
