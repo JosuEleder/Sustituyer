@@ -6,7 +6,7 @@ firstpages = []
 pages = []
 movies = []
 firstyear = 1920
-lastyear = 1924
+lastyear = 2024
 
 def extractmovies(soup):
     collection = soup.find(id="collections") 
@@ -39,4 +39,4 @@ for firstpage in firstpages:
 
 for movie in movies:
         if movie["punctuation"][0] in ("9", "8", "7"):
-            print(movie["name"], movie["punctuation"], movie["link"])
+            print(movie["name"] + "\t" + movie["punctuation"] + "\t" + movie["link"])
