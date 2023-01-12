@@ -9,4 +9,4 @@ with open("../data/movies.txt", "r") as movies:
         movievalues = movie.split("\t")
         nuevamovie = procesafrase(movievalues[0].strip())
         if not(movievalues[0].strip().lower() == nuevamovie.lower()):
-            print(nuevamovie +"\t"+ movievalues[1].strip() +"\t"+ movievalues[2].strip())
+            print(movievalues[0].strip() +"\t"+ movievalues[1].strip() +"\t"+ movievalues[2].strip())

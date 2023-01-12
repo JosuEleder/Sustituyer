@@ -86,3 +86,14 @@ Traceback (most recent call last):
   File "/mnt/c/Users/josug/Projects/Sustituyer/sustituyer_auto_bot.py", line 24, in <module>
     pelioriginal = pelis[numero][0].rstrip()
 IndexError: list index out of range
+Traceback (most recent call last):
+  File "/mnt/c/Users/josug/Projects/Sustituyer/sustituyer_auto_bot.py", line 29, in <module>
+    api.update_status(status=tuit)
+  File "/home/josugp/.local/lib/python3.8/site-packages/tweepy/api.py", line 46, in wrapper
+    return method(*args, **kwargs)
+  File "/home/josugp/.local/lib/python3.8/site-packages/tweepy/api.py", line 1142, in update_status
+    return self.request(
+  File "/home/josugp/.local/lib/python3.8/site-packages/tweepy/api.py", line 265, in request
+    raise Forbidden(resp)
+tweepy.errors.Forbidden: 403 Forbidden
+187 - Status is a duplicate.
