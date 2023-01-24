@@ -1,12 +1,16 @@
-import sys
+import sys, os
 sys.path.insert(0, '..')
+ROOT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))
 
 from sustituyer_main import procesafrase
 import re
 
-with open("../data/movies.txt", "r") as movies:
+with open(ROOT_DIR + "/data/moviesEmp.txt", "r") as movies:
     for movie in movies:
         movievalues = movie.split("\t")
         nuevamovie = procesafrase(movievalues[0].strip())
         if not(movievalues[0].strip().lower() == nuevamovie.lower()):
-            print(movievalues[0].strip() +"\t"+ movievalues[1].strip() +"\t"+ movievalues[2].strip())
+            try:
+                print(movievalues[0].strip() +"\t"+ movievalues[1].strip() +"\t"+ movievalues[2].strip())
+            except:
+                print("ERROR EN " + movievalues[0])
