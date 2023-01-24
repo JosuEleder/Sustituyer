@@ -2,9 +2,9 @@
 import spacy
 from spacy.vocab import Vocab
 from pyverse import Pyverse
-import random
-import re
-import sys
+import random, re, sys, os
+
+ROOT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), '.'))
 
 ## Ejemplos de pelis. Se usarán sólo en el modo "Test=2"
 pelis = ["El padrino", "Doce hombres sin piedad", "La lista de Schindler", "Testigo de cargo", "Luces de la ciudad", "Cadena perpetua", "El gran dictador", "Tiempos modernos", "Lo que el viento se llevó", "Alguien voló sobre el nido del cuco"]
@@ -20,6 +20,7 @@ POS=""
 numero=""
 genero=""
 frasenueva=""
+os.path.join(ROOT_DIR)
 
 ## Funciones
 
@@ -29,13 +30,13 @@ def creardiccionario():
     d.append("<dic>")
 
 # Se prepara el diccionario de "comunes" para comparar luego y que se quede sólo con las palabras más comunes del castellano
-    with open("/mnt/c/Soft/JosuEleder/Sustituyer/data/10000_formas.txt",'r') as fichero_comunes:
+    with open(ROOT_DIR + "/data/10000_formas.txt",'r') as fichero_comunes:
         comunes=[]
         for linea in fichero_comunes:
             comunes.append(linea.split()[1])
 
 # Primero el fichero de adjetivos
-    with open("/mnt/c/Soft/JosuEleder/Sustituyer/data/MM.adj") as f:
+    with open(ROOT_DIR + "/data/MM.adj") as f:
         for linea in f:
             # Ejemplo de formato: aberenjenadas aberenjenado AQ0FP00
             (palabradic, lema, features) = linea.split()
@@ -60,7 +61,7 @@ def creardiccionario():
                 # Se añade al diccionario d
                 d.append(l)
     # Se hace lo mismo con los sustantivos.
-    with open("/mnt/c/Soft/JosuEleder/Sustituyer/data/MM.nom") as f:
+    with open(ROOT_DIR + "/data/MM.nom") as f:
         for linea in f:
             (palabradic, lema, features) = linea.split()
             if palabradic in comunes:
@@ -171,14 +172,6 @@ if test==1:
         print(frase+"\n"+frasenueva)
     else:
         print("")
-
-# Modo Test 2: el script lee el listado de pelis que tiene arriba y devuelve la sustitución de todas ellas
-if test==2:
-    nuevapeli=""
-    for peli in pelis:
-        nuevapeli = procesafrase(peli)
-        print(peli+": "+nuevapeli)
-
 
 
 

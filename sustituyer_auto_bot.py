@@ -1,6 +1,8 @@
 import tweepy
 from sustituyer_main import procesafrase
-import random
+import random, os
+
+ROOT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), '.'))
 
 # Los keys, secrets y tokens del bot 
 ACCESS_KEY = '1602241689996886018-4lKhpc0KsVwvM7KOfFg33534TDcwXr'
@@ -15,7 +17,7 @@ auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
 pelis = []
-for datospeli in open("/mnt/c/Users/josug/Projects/Sustituyer/data/movies_clean.txt", "r"): 
+for datospeli in open(ROOT_DIR + "/data/moviesEmp_clean.txt", "r"): 
     peli = datospeli.split("\t")
     pelis.insert(0, peli)
 
@@ -24,7 +26,8 @@ numero = random.randint(0, len(pelis))
 pelioriginal = pelis[numero][0].rstrip()
 enlaceoriginal = pelis[numero][2].rstrip()
 pelinueva = procesafrase(pelioriginal)
-tuit= pelioriginal+" ("+enlaceoriginal+"):\n"+pelinueva
+#tuit= pelioriginal+" ("+enlaceoriginal+"):\n"+pelinueva
+tuit= pelioriginal+" :\n"+pelinueva
 
 api.update_status(status=tuit)
         
