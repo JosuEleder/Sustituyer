@@ -202,11 +202,9 @@ He preparado un bot que escucha constantemente el stream de Twitter y busca "@su
 
 ### Modo autónomo
 
-La idea es cargar un listado de 1000 títulos y que los vaya ofreciendo al azar cada dos horas o así. Para esto necesitaré:
--un listado de títulos cargados en un array
--una función que escoja al azar uno de los títulos, lo sustituya, y devuelva la nueva versión. Si la versión coincide con el original, volver a hacerlo
--cada vez que se mira un título, marcarlo de algún modo para que no se repita
-Esto será más adelante.
+Hay otro script ahora que carga un listado de 200 títulos y envía un tuit cada hora con la sustitución de uno de ellos al azar. Para ejecutarlo hay que poner un crontab -e así (yo lo hago desde mi entorno virtual):
+
+10 * * * * /home/josugp/virtual/dev/dev-venv/bin/python3 /home/josugp/Repos/Sustituyer/sustituyer_auto_bot.py >> /home/josugp/Repos/Sustituyer/auto_log.txt 2>&1
 
 ## Posibles mejoras
 
