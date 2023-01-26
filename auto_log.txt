@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/josugp/Repos/Sustituyer/sustituyer_auto_bot.py", line 12, in <module>
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+NameError: name 'CONSUMER_KEY' is not defined
