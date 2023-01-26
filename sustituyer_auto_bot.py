@@ -1,6 +1,7 @@
 import tweepy
 from sustituyer_main import procesafrase
 import random, os
+import yaml
 
 ROOT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), '.'))
 
@@ -16,17 +17,16 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-#El padrino	El padrino (1972)	9,0	173.519	https://www.filmaffinity.com/es/film809297.html
 pelis = []
-for datospeli in open(ROOT_DIR + "/data/moviesFARichi_clean.txt", "r"): 
-    peli = datospeli.split("\t")
-    pelis.insert(0, peli)
+with open(ROOT_DIR + "/data/moviesFARichi_clean.yml", "r") as stream:
+    pelis = yaml.safe_load(stream)
 
 #random.choice
 numero = random.randint(0, len(pelis))
-pelioriginal = pelis[numero][0].strip()
-enlaceoriginal = pelis[numero][4].strip()
-pelianyooriginal = pelis[numero][1].strip()
+
+pelioriginal = pelis[numero]["name"]
+enlaceoriginal = pelis[numero]["link"]
+pelianyooriginal = pelis[numero]["nameyear"]
 pelinueva = procesafrase(pelioriginal)
 #tuit= pelioriginal+" ("+enlaceoriginal+"):\n"+pelinueva
 tuit= pelianyooriginal+" " + enlaceoriginal + ":\n"+pelinueva
