@@ -31,6 +31,5 @@ pelinueva = procesafrase(pelioriginal)
 #tuit= pelioriginal+" ("+enlaceoriginal+"):\n"+pelinueva
 tuit= pelianyooriginal+" " + enlaceoriginal + ":\n"+pelinueva
 
-print(tuit)
-#api.update_status(status=tuit)
+api.update_status(status=tuit)
         
