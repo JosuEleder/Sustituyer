@@ -1,4 +1,4 @@
 spacy
-    spacy download es_core_news_lg
 pyverse
 tweepy
+pyyaml
