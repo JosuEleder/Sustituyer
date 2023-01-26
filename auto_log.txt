@@ -1,0 +1,31 @@
+  File "/home/josugp/Repos/Sustituyer/sustituyer_auto_bot.py", line 2
+    print sys.path
+    ^^^^^^^^^^^^^^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+['/home/josugp/Repos/Sustituyer', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/usr/local/lib/python3.10/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.10/dist-packages']
+Traceback (most recent call last):
+  File "/home/josugp/Repos/Sustituyer/sustituyer_auto_bot.py", line 4, in <module>
+    import tweepy
+ModuleNotFoundError: No module named 'tweepy'
+['/home/josugp/Repos/Sustituyer', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/usr/local/lib/python3.10/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.10/dist-packages']
+Traceback (most recent call last):
+  File "/home/josugp/Repos/Sustituyer/sustituyer_auto_bot.py", line 4, in <module>
+    import tweepy
+ModuleNotFoundError: No module named 'tweepy'
+['/home/josugp/Repos/Sustituyer', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/usr/local/lib/python3.10/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.10/dist-packages']
+Traceback (most recent call last):
+  File "/home/josugp/Repos/Sustituyer/sustituyer_auto_bot.py", line 4, in <module>
+    import tweepy
+ModuleNotFoundError: No module named 'tweepy'
+['/home/josugp/Repos/Sustituyer', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/usr/local/lib/python3.10/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.10/dist-packages']
+Traceback (most recent call last):
+  File "/home/josugp/Repos/Sustituyer/sustituyer_auto_bot.py", line 4, in <module>
+    import tweepy
+ModuleNotFoundError: No module named 'tweepy'
+['/home/josugp/Repos/Sustituyer', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/usr/local/lib/python3.10/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.10/dist-packages']
+Traceback (most recent call last):
+  File "/home/josugp/Repos/Sustituyer/sustituyer_auto_bot.py", line 4, in <module>
+    import tweepy
+ModuleNotFoundError: No module named 'tweepy'
+['/home/josugp/Repos/Sustituyer', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/home/josugp/virtual/dev/dev-venv/lib/python3.10/site-packages']
+['/home/josugp/Repos/Sustituyer', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/home/josugp/virtual/dev/dev-venv/lib/python3.10/site-packages']
